@@ -20,7 +20,7 @@ const getFetchOptions = (body, method = 'POST') => ({
 });
 
 // CREATE USER
-const signupAndLoginHandler = async (url, form) => {
+const signupAndLoginHandler = async (url, form) => {z
   const formData = new FormData(form);
   const options = getFetchOptions(Object.fromEntries(formData.entries()));
   const [_response, err] = await handleFetch(url, options);

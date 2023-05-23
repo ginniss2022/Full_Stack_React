@@ -9,18 +9,20 @@ import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
+import Chat from './pages/chat';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
   useEffect(() => {
     checkForLoggedInUser().then(setCurrentUser);
   }, [setCurrentUser]);
-
+    
   return <>
     <SiteHeadingAndNav />
     <main>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/chat' element={<Chat />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
         <Route path='/users' element={<UsersPage />} />
